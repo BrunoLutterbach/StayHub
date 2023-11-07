@@ -37,4 +37,11 @@ public class UsuarioService {
     public Page<DadosListagemUsuario> listarTodos(Pageable pageable) {
         return repository.findAll(pageable).map(DadosListagemUsuario::new);
     }
+
+    public void removerUsuario(Long id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+        }
+        throw new IllegalArgumentException("Usuário não encontrado");
+    }
 }
