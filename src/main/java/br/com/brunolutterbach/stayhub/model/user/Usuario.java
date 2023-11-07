@@ -48,4 +48,16 @@ public class Usuario {
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
+
+    public void atualizar(DadosAtualizacaoUsuario dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.senha() != null) {
+            this.senha = dados.senha();
+        }
+        if (dados.email() != null) {
+            this.email = dados.email();
+        }
+    }
 }
