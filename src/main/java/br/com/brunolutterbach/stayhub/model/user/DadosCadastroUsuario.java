@@ -1,6 +1,7 @@
 package br.com.brunolutterbach.stayhub.model.user;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public record DadosCadastroUsuario(
         @NotBlank
@@ -9,7 +10,7 @@ public record DadosCadastroUsuario(
         String senha,
         @NotBlank
         String email,
-        @NotBlank
+        @NotNull
         TipoUsuario tipoUsuario
 
 ) {
