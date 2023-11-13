@@ -5,7 +5,9 @@ import br.com.brunolutterbach.stayhub.model.user.Usuario;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+
 @Entity(name = "imoveis")
 public class Imovel {
 
@@ -22,8 +24,8 @@ public class Imovel {
     @ElementCollection
     private List<String> fotos;
     private BigDecimal valor = BigDecimal.ZERO;
-    private Boolean disponibilidade;
-    private LocalDate datasDisponiveis;
+    @OneToMany(mappedBy = "imovel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DisponibilidadeImovel> disponibilidades = new ArrayList<>();
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "proprietario_id")
     private Usuario proprietario;
