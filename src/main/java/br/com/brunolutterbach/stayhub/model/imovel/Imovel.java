@@ -15,7 +15,7 @@ public class Imovel {
     private String nome;
     private String endereco;
     private String cidade;
-    private String estado;
+    private UnidadeFederacao uf;
     private String cep;
     private CategoriaImovel categoria;
     private String descricao;
