@@ -21,7 +21,7 @@ public class Usuario {
     private String nome;
     private String senha;
     private String email;
-    private LocalDateTime dataRegistro = LocalDateTime.now(); // Commit msg:
+    private LocalDateTime dataRegistro = LocalDateTime.now();
     @Enumerated(EnumType.STRING)
     private TipoUsuario tipoUsuario;
     @OneToOne(cascade = CascadeType.ALL) // CascadeType.ALL -> se eu apagar o usuario, apaga a carteira
