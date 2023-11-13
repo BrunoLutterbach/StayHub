@@ -30,5 +30,16 @@ public class Imovel {
     @JoinColumn(name = "proprietario_id")
     private Usuario proprietario;
 
+    public void adicionarDisponibilidade(LocalDate dataInicio, LocalDate dataFim) {
+        DisponibilidadeImovel disponibilidade = new DisponibilidadeImovel(this, dataInicio, dataFim);
+        disponibilidades.add(disponibilidade);
+    }
+
+    public boolean checarDisponibilidade(LocalDate dataInicio, LocalDate dataFim) {
+        return disponibilidades.stream()
+                .anyMatch(data -> data.getDataInicio().isBefore(dataFim) &&
+                        data.getDataFim().isAfter(dataInicio));
+    }
+
 
 }
