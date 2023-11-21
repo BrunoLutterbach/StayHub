@@ -1,6 +1,7 @@
 package br.com.brunolutterbach.stayhub.model.imovel;
 
 import br.com.brunolutterbach.stayhub.model.user.Usuario;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "imoveis")
+@Data
 public class Imovel {
 
     @Id
@@ -56,6 +58,4 @@ public class Imovel {
                 .anyMatch(data -> data.getDataInicio().isBefore(dataFim) &&
                         data.getDataFim().isAfter(dataInicio));
     }
-
-
 }
