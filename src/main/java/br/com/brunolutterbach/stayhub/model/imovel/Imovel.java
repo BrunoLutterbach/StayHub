@@ -30,6 +30,22 @@ public class Imovel {
     @JoinColumn(name = "proprietario_id")
     private Usuario proprietario;
 
+    public Imovel(DadosCadastroImovel dados) {
+        this.nome = dados.nome();
+        this.endereco = dados.endereco();
+        this.cidade = dados.cidade();
+        this.uf = dados.uf();
+        this.cep = dados.cep();
+        this.categoria = dados.categoriaImovel();
+        this.descricao = dados.descricao();
+        this.fotos = dados.fotos();
+        this.valor = dados.valor();
+    }
+
+    public Imovel() {
+
+    }
+
     public void adicionarDisponibilidade(LocalDate dataInicio, LocalDate dataFim) {
         DisponibilidadeImovel disponibilidade = new DisponibilidadeImovel(this, dataInicio, dataFim);
         disponibilidades.add(disponibilidade);
