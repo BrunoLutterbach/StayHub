@@ -23,6 +23,7 @@ public class Imovel {
     private String cep;
     private CategoriaImovel categoria;
     private String descricao;
+    private boolean ativo = false;
     @ElementCollection
     private List<String> fotos;
     private BigDecimal valor = BigDecimal.ZERO;

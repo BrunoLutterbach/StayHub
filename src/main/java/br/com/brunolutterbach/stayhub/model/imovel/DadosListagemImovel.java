@@ -12,6 +12,7 @@ public record DadosListagemImovel(
         String cep,
         CategoriaImovel categoria,
         String descricao,
+        boolean ativo,
         List<String> fotos,
         BigDecimal valor
 
@@ -25,6 +26,7 @@ public record DadosListagemImovel(
                 imovel.getCep(),
                 imovel.getCategoria(),
                 imovel.getDescricao(),
+                imovel.isAtivo(),
                 imovel.getFotos(),
                 imovel.getValor());
     }
