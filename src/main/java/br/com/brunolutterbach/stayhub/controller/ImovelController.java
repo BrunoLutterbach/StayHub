@@ -1,5 +1,6 @@
 package br.com.brunolutterbach.stayhub.controller;
 
+import br.com.brunolutterbach.stayhub.model.imovel.DadosAtualizacaoImovel;
 import br.com.brunolutterbach.stayhub.model.imovel.DadosCadastroImovel;
 import br.com.brunolutterbach.stayhub.model.imovel.DadosListagemImovel;
 import br.com.brunolutterbach.stayhub.service.ImovelService;
