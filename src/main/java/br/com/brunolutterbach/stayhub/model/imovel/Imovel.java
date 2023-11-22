@@ -59,4 +59,28 @@ public class Imovel {
                 .anyMatch(data -> data.getDataInicio().isBefore(dataFim) &&
                         data.getDataFim().isAfter(dataInicio));
     }
+
+    public void atualizar(DadosAtualizacaoImovel dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.endereco() != null) {
+            this.endereco = dados.endereco();
+        }
+        if (dados.cidade() != null) {
+            this.cidade = dados.cidade();
+        }
+        if (dados.uf() != null) {
+            this.uf = dados.uf();
+        }
+        if (dados.cep() != null) {
+            this.cep = dados.cep();
+        }
+        if (dados.categoria() != null) {
+            this.categoria = dados.categoria();
+        }
+        if (dados.descricao() != null) {
+            this.descricao = dados.descricao();
+        }
+    }
 }
