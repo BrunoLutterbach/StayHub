@@ -13,6 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/imovel")
@@ -50,6 +51,12 @@ public class ImovelController {
     @GetMapping
     public ResponseEntity<Page<DadosListagemImovel>> listarTodos(Pageable pageable) {
         var imoveis = service.listarTodos(pageable);
+        return ResponseEntity.ok(imoveis);
+    }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<Optional<DadosListagemImovel>> buscarImovelPorUF(Pageable pageable, @RequestParam String uf) {
+        var imoveis = service.buscarImovelPorUF(pageable, uf);
         return ResponseEntity.ok(imoveis);
     }
 
