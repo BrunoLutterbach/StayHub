@@ -30,4 +30,18 @@ public record DadosListagemImovel(
                 imovel.getFotos(),
                 imovel.getValor());
     }
+
+    public DadosListagemImovel(DadosListagemImovel dadosListagemImovel) {
+        this(dadosListagemImovel.id(),
+                dadosListagemImovel.nome(),
+                dadosListagemImovel.endereco(),
+                dadosListagemImovel.cidade(),
+                dadosListagemImovel.uf(),
+                dadosListagemImovel.cep(),
+                dadosListagemImovel.categoria(),
+                dadosListagemImovel.descricao(),
+                dadosListagemImovel.ativo(),
+                dadosListagemImovel.fotos(),
+                dadosListagemImovel.valor());
+    }
 }
