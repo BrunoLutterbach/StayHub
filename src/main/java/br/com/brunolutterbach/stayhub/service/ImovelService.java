@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class ImovelService {
@@ -44,5 +46,9 @@ public class ImovelService {
         imovel.atualizar(dados);
         repository.save(imovel);
         return new DadosListagemImovel(imovel);
+    }
+
+    public Optional<DadosListagemImovel> buscarImovelPorUF(Pageable pageable, String uf) {
+        return repository.findByUf(pageable, uf).map(DadosListagemImovel::new);
     }
 }
