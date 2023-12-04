@@ -1,6 +1,7 @@
 package br.com.brunolutterbach.stayhub.model.imovel;
 
-import br.com.brunolutterbach.stayhub.model.user.Usuario;
+import br.com.brunolutterbach.stayhub.inquilino.Inquilino;
+import br.com.brunolutterbach.stayhub.model.locatario.Locatario;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -30,9 +31,11 @@ public class Imovel {
     @OneToMany(mappedBy = "imovel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DisponibilidadeImovel> disponibilidades = new ArrayList<>();
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "proprietario_id")
-    private Usuario proprietario;
-
+    @JoinColumn(name = "locatario_id")
+    private Locatario locatario;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "inquilino_id")
+    private Inquilino inquilino;
     public Imovel(DadosCadastroImovel dados) {
         this.nome = dados.nome();
         this.endereco = dados.endereco();
