@@ -1,6 +1,6 @@
 package br.com.brunolutterbach.stayhub.model.imovel;
 
-import br.com.brunolutterbach.stayhub.inquilino.Inquilino;
+import br.com.brunolutterbach.stayhub.model.inquilino.Inquilino;
 import br.com.brunolutterbach.stayhub.model.locatario.Locatario;
 import lombok.Data;
 

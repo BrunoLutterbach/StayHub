@@ -1,4 +1,4 @@
-package br.com.brunolutterbach.stayhub.inquilino;
+package br.com.brunolutterbach.stayhub.model.inquilino;
 
 import lombok.Data;
 
