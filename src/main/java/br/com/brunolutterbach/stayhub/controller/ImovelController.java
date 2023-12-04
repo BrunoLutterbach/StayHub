@@ -59,7 +59,4 @@ public class ImovelController {
         var imoveis = service.buscarImovelPorUF(pageable, uf);
         return ResponseEntity.ok(imoveis);
     }
-
-
-
 }
