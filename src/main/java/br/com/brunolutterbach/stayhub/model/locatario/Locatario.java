@@ -1,4 +1,4 @@
-package br.com.brunolutterbach.stayhub.model.user;
+package br.com.brunolutterbach.stayhub.model.locatario;
 
 import br.com.brunolutterbach.stayhub.model.carteira.Carteira;
 import lombok.*;
@@ -13,7 +13,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Usuario {
+public class Locatario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,16 +22,13 @@ public class Usuario {
     private String senha;
     private String email;
     private LocalDateTime dataRegistro = LocalDateTime.now();
-    @Enumerated(EnumType.STRING)
-    private TipoUsuario tipoUsuario;
     @OneToOne(cascade = CascadeType.ALL) // CascadeType.ALL -> se eu apagar o usuario, apaga a carteira
     private Carteira carteira;
 
-    public Usuario(DadosCadastroUsuario dados) {
+    public Locatario(DadosCadastroLocatario dados) {
         this.nome = dados.nome();
         this.senha = dados.senha();
         this.email = dados.email();
-        this.tipoUsuario = dados.tipoUsuario();
         this.carteira = new Carteira();
     }
 
@@ -42,7 +39,7 @@ public class Usuario {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Usuario usuario = (Usuario) o;
+        Locatario usuario = (Locatario) o;
         return getId() != null && Objects.equals(getId(), usuario.getId());
     }
 
@@ -51,7 +48,7 @@ public class Usuario {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
 
-    public void atualizar(DadosAtualizacaoUsuario dados) {
+    public void atualizar(DadosAtualizacaoLocatario dados) {
         if (dados.nome() != null) {
             this.nome = dados.nome();
         }
