@@ -4,7 +4,7 @@ import br.com.brunolutterbach.stayhub.model.locatario.DadosAtualizacaoLocatario;
 import br.com.brunolutterbach.stayhub.model.locatario.DadosCadastroLocatario;
 import br.com.brunolutterbach.stayhub.model.locatario.DadosListagemLocatario;
 import br.com.brunolutterbach.stayhub.model.locatario.Locatario;
-import br.com.brunolutterbach.stayhub.repository.UsuarioRepository;
+import br.com.brunolutterbach.stayhub.repository.LocatarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class LocatarioService {
 
-    final UsuarioRepository repository;
+    final LocatarioRepository repository;
 
     public DadosListagemLocatario criarUsuario(DadosCadastroLocatario dados) {
         var usuario = new Locatario(dados);
